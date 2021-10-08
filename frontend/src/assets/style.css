@@ -1,100 +1,490 @@
-/*
-Common
-************************************/
+/****************************
+* COMMON
+*****************************/
 
-html,
 body {
-  height: 100%;
-  font-family: sans-serif;
-}
-
-.content {
-  width: 600px;
-  height: 100%;
-  margin: 0 auto;
-  border-left: 1px solid #ccc;
-  border-right: 1px solid #ccc;
-}
-
-@media screen and (max-width: 500px) {
-}
-
-/*
-Posts
-************************************/
-
-.post_form {
-  padding: 20px 40px;
-  border-bottom: 1px solid #ccc;
-}
-
-.post_form input {
-  width: 70%;
-  margin-bottom: 10px;
-  padding: 10px;
-  border: 1px solid #ccc;
-}
-
-.post_form textarea {
-  width: 70%;
-  padding: 10px;
-  border: 1px solid #ccc;
-}
-
-.posts ul {
+  margin: 0;
   padding: 0;
+  width: 100%;
+  min-height: 80vh;
 }
 
-.posts li {
-  position: relative;
-  display: flex;
-  border-bottom: 1px solid #ccc;
-  padding: 20px 40px;
+.image-list ul {
   list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-between;
+  padding: 0;
+  width: 90%;
+  margin: 50px auto;
 }
 
-.posts li .menu_icon {
-  width: 20px;
+.image-list ul li {
+  position: relative;
+  width: 300px;
+  float: left;
+}
+
+.image-list ul li .image {
+  width: 300px;
+  margin: 10px;
+}
+
+.image-list ul li .icon-heart {
+  top: 20px;
+  right: 0;
   position: absolute;
-  right: 30px;
-  top: 18px;
+  width: 55px;
 }
 
-.posts li .menu {
+.image-list .button input {
+  width: 15%;
+  padding: 10px;
+  margin: 20px;
+  margin-left: 40%;
+  border-radius: 5px;
+  border: none;
+  color: rgb(118, 115, 115);
+  background-color: rgb(216, 244, 1);
+  border: 1px solid;
+}
+
+.search-main .searchbox2 {
+  position: relative;
+  margin-top: 50px;
+  height: 50px;
+}
+.search-main .searchbox2 form {
   position: absolute;
-  top: 40px;
-  right: 15px;
-  border: 1px solid #ccc;
-  background-color: white;
-  padding: 10px 15px;
-  font-size: 13px;
-  border-radius: 3px;
+  right: 20px;
+}
+.search-main .searchbox2 input {
+  border-radius: 15px;
+  border: 1px solid grey;
+  padding: 5px 20px;
+}
+.search-main .searchbox2 .searchimg {
+  position: absolute;
+  right: 0;
+  height: 15px;
+  padding: 5px;
+}
+.search-main .title {
+  font-size: 50px;
+  padding: 0px 70px;
+  margin: 0 0 20px 0;
+  left: 10px;
+  color: #898585;
+  font-family: fredoka -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-.posts li img {
+.search-main .title .thin {
+  font-family: Avenir;
+}
+
+@media screen and (max-width: 400px) {
+  .image-list ul {
+    display: block;
+  }
+  .image-list ul li {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .image-list ul {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0;
+    width: 95%;
+    margin: 100px auto;
+  }
+}
+@media screen and (max-width: 600px) {
+  .image-list ul {
+    grid-template-columns: repeat(1, 1fr);
+    padding: 0;
+    width: 70%;
+    margin: 80px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .image-list ul {
+    grid-template-columns: repeat(1, 1fr);
+    padding: 0;
+    width: 82%;
+    margin: 30px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .image-list .button {
+    width: 20%;
+  }
+}
+
+/****************************
+* HEADER
+*****************************/
+
+header {
+  width: 100%;
+  object-fit: cover;
+  background-color: rgb(216, 244, 1);
+  position: relative;
+}
+header .logo {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: 0 auto;
+}
+header .logo img {
+  margin: 5px;
+  height: 40px;
+}
+header .navbar {
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+  background: #ffffff70;
+}
+header .navbar ul {
+  display: flex;
+  list-style: none;
+  margin: 0 auto;
+  justify-content: space-between;
+  overflow-y: hidden;
+  overflow-x: auto;
+  padding: 10px;
+}
+header .navbar li {
+  margin: 0 10px;
+  border-radius: 5px;
+  border: none;
+  color: rgb(118, 115, 115);
+  background-color: rgb(216, 244, 1);
+  border: 1px solid;
+  padding: 5px 20px;
+  text-align: center;
+}
+header .logo .button {
+  margin: 10px;
+  border-radius: 5px;
+  border: none;
+  color: rgb(118, 115, 115);
+  background-color: rgb(216, 244, 1);
+  border: 1px solid;
+  padding: 10px;
+}
+@media screen and (max-width: 600px) {
+  header .logo img {
+    height: 25px;
+  }
+}
+
+/****************************
+* FOOTER
+*****************************/
+
+footer .bottom {
+  border-collapse: collapse;
+}
+footer .logo {
+  border-top: 1px solid #898585;
+}
+footer .logo img {
+  margin: 10px;
+  padding: 5px;
+}
+
+/****************************
+* Home
+*****************************/
+
+.home {
+  width: 100%;
+}
+.home .main-visual {
+  position: relative;
+}
+.home .main-visual .button {
+  background-color: rgb(216, 244, 1);
+  border-radius: 5px;
+  border: none;
+  color: rgb(118, 115, 115);
+  padding: 10px;
+  margin: 0 0px;
+}
+.home .main-visual .main-background {
+  position: relative;
+}
+.home .main-visual .main-background .black-cover {
+  background-color: rgba(53, 50, 50, 0.536);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.home .main-visual .main-background img {
+  width: 100%;
+}
+.home .main-visual .main-catch {
+  position: absolute;
+  top: 25%;
+  left: 30%;
+}
+.home .main-visual .main-catch .text1 {
+  color: rgb(250, 247, 247);
+  font-family: Avenir, Helvetica, sans-serif;
+  font-size: 55px;
+  text-align: center;
+  margin: 0;
+  font-weight: normal;
+  text-shadow: 2px 2px #00000054;
+}
+.home .main-visual .main-catch .text2 {
+  color: rgb(216, 244, 45);
+  font-family: "Fredoka One", "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 75px;
+  text-align: center;
+  margin: 0;
+  text-shadow: 2px 2px #00000044;
+}
+.home .main-visual .main-catch .searchbox {
+  position: relative;
+  border-radius: 10px;
+  width: 100%;
+  padding: 5px;
+  opacity: 0.7;
+}
+.home .main-visual .main-catch .searchimg {
+  position: absolute;
+  right: 25px;
+  top: 13px;
+  height: 20px;
+}
+.home .main-visual .main-catch .searchbox input {
+  border-radius: 5px;
+  border-color: rgb(216, 244, 45);
+  width: 480px;
+  padding: 0 5px;
+  height: 35px;
+}
+@media screen and (max-width: 400px) {
+  .home .main-visual .main-catch {
+    top: 21%;
+    left: 5%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .home .main-visual .main-catch .text1 {
+    font-size: 20px;
+  }
+  .home .main-visual .main-catch .text2 {
+    font-size: 35px;
+  }
+  .home .main-visual .main-catch .searchbox input {
+    width: 245px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .home .main-visual .main-catch .text1 {
+    font-size: 30px;
+  }
+  .home .main-visual .main-catch .text2 {
+    font-size: 50px;
+  }
+  .home .main-visual .main-catch .searchbox input {
+    width: 330px;
+  }
+}
+
+/****************************
+* Favorite
+*****************************/
+
+.favorite .favourite-images .favourite-image {
+  margin: 20px auto;
+  width: 90vw;
+}
+
+.favorite .favourite-images .favourite-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.favorite .favourite-images .btn {
+  /* margin: 10px; */
+  margin: 1% 5%;
+  border-radius: 5px;
+  border: none;
+  color: rgb(118, 115, 115);
+  border: 1px solid;
+  width: 180px;
+  height: 40px;
+}
+.favorite .favourite-images .btn-2 {
+  /* margin: 10px; */
+  margin: 1% 0;
+  border-radius: 5px;
+  border: none;
+  color: rgb(118, 115, 115);
+  background-color: rgb(216, 244, 45);
+  border: 1px solid;
+  width: 180px;
+  height: 40px;
+}
+.favorite .favourite-images .clear {
+  clear: both;
+}
+
+.favorite .favourite-images img {
   width: 100%;
 }
 
-.posts li .menu a {
-  text-decoration: none;
+/****************************
+* Search Page
+*****************************/
+
+.search-page {
+  position: relative;
 }
 
-.posts li .logo {
-  flex-basis: 15%;
+/****************************
+* Preview
+*****************************/
+
+.preview {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
 }
 
-.posts li .logo img {
+.preview .preview-black-cover {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.221);
+}
+
+.preview .icon-cross {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  width: 60px;
+}
+
+.preview .preview-main {
+  top: 100px;
+  left: 10%;
+  width: 80%;
+  position: absolute;
+}
+
+.preview .preview-main .preview-main-inner {
+  display: flex;
+  width: 100%;
+}
+
+.preview .preview-main .left-side {
   width: 60%;
 }
 
-.posts li .name_body {
-  flex-basis: 85%;
+.preview .preview-main .left-side img {
+  width: 100%;
 }
 
-.posts li .name_body .name {
-  font-weight: bold;
+.preview .preview-main .left-side .left-image {
+  position: relative;
+  vertical-align: text-bottom;
 }
 
-.posts li .name_body .datetime {
-  color: gray;
+.preview .preview-main .left-side .heart {
+  position: absolute;
+  width: 8%;
+  right: 40%;
+}
+
+.preview .preview-main .left-side .black-box-bottom {
+  width: 60%;
+  height: 10%;
+  color: white;
+  background-color: black;
+  display: flex;
+  position: absolute;
+  top: 99%;
+}
+
+.preview .preview-main .left-side .black-box-bottom p {
+  padding: 0;
+  margin: 5px 0;
+  text-align: center;
+}
+.preview .preview-main .left-side .black-box-bottom .one {
+  width: 30%;
+}
+.preview .preview-main .left-side .black-box-bottom .two {
+  width: 70%;
+  text-align: left;
+  font-size: 0.5rem;
+}
+.preview .preview-main .right-side {
+  width: 35%;
+  margin-left: 5%;
+}
+
+.preview .preview-main .right-side .right-inner p {
+  position: relative;
+  padding: 5px;
+  text-align: center;
+  font-family: Helvetica Neue;
+  color: #d8f42d;
+  font-weight: 400;
+}
+
+.preview .preview-main .right-inner {
+  width: 100%;
+  height: 80%;
+  background: #524c4c;
+  position: relative;
+}
+
+.preview .preview-main .right-side .background {
+  width: 90%;
+  bottom: 25%;
+  left: 5%;
+  position: absolute;
+}
+
+.preview .preview-main .right-side .right-inner .inner .human {
+  position: absolute;
+  bottom: 28%;
+  left: 8%;
+  width: 80%;
+}
+.preview .preview-main .right-side .right-inner .inner .bottom {
+  /* margin: 0; */
+  position: absolute;
+  top: 71%;
+  width: 90%;
+  left: 5%;
+}
+
+.download-button {
+  border-radius: 5px;
+  border: none;
+  color: rgb(118, 115, 115);
+  background-color: rgb(216, 244, 45);
+  border: 1px solid;
+  width: 80%;
+  padding: 5px;
+  margin: 0 auto;
+  position: absolute;
+  left: 10%;
+  font-size: 2.3vw;
+  top: 80%;
 }
