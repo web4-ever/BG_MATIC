@@ -6,3 +6,11 @@ export const fetchImagesAction = (images, hasNext) => {
     hasNext: hasNext,
   };
 };
+export const RESET_IMAGES = "RESET_IMAGES";
+export const resetImagesAction = () => {
+  return {
+    type: "RESET_IMAGES",
+    list: [],
+    hasNext: true,
+  };
+};

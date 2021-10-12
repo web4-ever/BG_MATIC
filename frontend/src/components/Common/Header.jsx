@@ -3,6 +3,7 @@ import ImgLogo from "../../assets/img/logo.png";
 import { useDispatch, useSelector } from "react-redux";
 import { getTags } from "../../reducks/tags/selectors";
 import { fetchTags } from "../../reducks/tags/operations";
+import { resetImages } from "../../reducks/images/operations";
 import { push } from "connected-react-router";
 
 function Header() {
@@ -13,6 +14,11 @@ function Header() {
   useEffect(() => {
     dispatch(fetchTags());
   }, []);
+
+  const pushToSearch = (tagId) => {
+    dispatch(resetImages());
+    dispatch(push("/search?tag_id=" + tagId));
+  };
 
   return (
     <header>
@@ -28,10 +34,7 @@ function Header() {
         <ul>
           {tags &&
             tags.map((tag) => (
-              <li
-                onClick={() => dispatch(push("/search?tag=" + tag.id))}
-                key={tag.id}
-              >
+              <li onClick={() => pushToSearch(tag.id)} key={tag.id}>
                 {tag.name}
               </li>
             ))}

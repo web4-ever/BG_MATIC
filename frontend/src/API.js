@@ -58,9 +58,16 @@ export default class API {
 
   //  IMAGES//////////////
 
-  getImages = async (page) => {
+  getImages = async (page, search, tagId) => {
+    let url = "/images/?page=" + page;
+    if (tagId) {
+      url += "&tag=" + tagId;
+    }
+    if (search) {
+      url += "&search=" + search;
+    }
     const images = await api
-      .get("/images/?page=" + page)
+      .get(url)
       .then((response) => {
         return response.data;
       })

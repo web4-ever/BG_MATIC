@@ -19,8 +19,8 @@ export default function Favorites() {
     <div class="favorite">
       <section class="search-main">
         <div class="searchbox2">
-          <form>
-            <input placeholder="School" type="text" />
+          <form action="/search" method="get">
+            <input placeholder="School" type="text" name="search" />
             <img src={ImgIconsearch} class="searchimg" />
           </form>
         </div>

@@ -47,6 +47,7 @@ body {
   color: rgb(118, 115, 115);
   background-color: rgb(216, 244, 1);
   border: 1px solid;
+  cursor: pointer;
 }
 
 .search-main .searchbox2 {
@@ -155,6 +156,7 @@ header .navbar ul {
   overflow-y: hidden;
   overflow-x: auto;
   padding: 10px;
+  cursor: pointer;
 }
 header .navbar li {
   margin: 0 10px;
@@ -174,6 +176,7 @@ header .logo .button {
   background-color: rgb(216, 244, 1);
   border: 1px solid;
   padding: 10px;
+  cursor: pointer;
 }
 @media screen and (max-width: 600px) {
   header .logo img {

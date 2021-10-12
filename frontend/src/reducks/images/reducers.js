@@ -8,6 +8,11 @@ export const ImagesReducer = (state = initialState.images, action) => {
         list: action.list,
         hasNext: action.hasNext,
       };
+    case Actions.RESET_IMAGES:
+      return {
+        list: action.list,
+        hasNext: action.hasNext,
+      };
     default:
       return state;
   }

@@ -60,7 +60,7 @@ const Home = () => {
             <p class="text2">BackGround</p>
             <div class="searchbox">
               <form action="/search" method="get">
-                <input placeholder="Type here.." type="text" />
+                <input placeholder="Type here.." type="text" name="search" />
                 <img src={ImgIconSearch} class="searchimg" />
               </form>
             </div>

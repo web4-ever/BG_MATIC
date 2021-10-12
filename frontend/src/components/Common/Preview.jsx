@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ImgIconCross from "../../assets/img/icon-cross.svg";
-import ImgLeftPreviewImage from "../../assets/img/left-preview-image.png";
 import ImgIconHeart from "../../assets/img/icon-heart.svg";
-import ImgRightPreviewBackground from "../../assets/img/right-preview-background.png";
 import ImgRightPreviewHuman from "../../assets/img/right-preview-human.svg";
 import ImgRightPreviewBottom from "../../assets/img/right-preview-bottom.svg";
 import { getFavourites } from "../../reducks/favourites/selectors";
