@@ -319,7 +319,7 @@ footer .logo img {
 
 .favorite .favourite-images .btn {
   /* margin: 10px; */
-  margin: 1% 5%;
+  margin: 10% 0;
   border-radius: 5px;
   border: none;
   color: rgb(118, 115, 115);
@@ -329,7 +329,7 @@ footer .logo img {
 }
 .favorite .favourite-images .btn-2 {
   /* margin: 10px; */
-  margin: 1% 0;
+  margin: 1% 2%;
   border-radius: 5px;
   border: none;
   color: rgb(118, 115, 115);
