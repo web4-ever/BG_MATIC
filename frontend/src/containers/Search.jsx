@@ -8,6 +8,8 @@ import ImgIconsearch from "../assets/img/icon-search.svg";
 import ImgIconHeart from "../assets/img/icon-heart.svg";
 import Preview from "../components/Common/Preview";
 import queryString from "query-string";
+import { useHistory } from "react-router";
+import Header from "../components/Common/Header";
 
 export default function Search() {
   const dispatch = useDispatch();
@@ -21,7 +23,7 @@ export default function Search() {
   const [showPreview, setShowPreview] = useState(false);
   const [selectedImageId, setSelectedImageId] = useState(null);
   const favourites = getFavourites(selector);
-
+  console.log("tag", tagId);
   useEffect(() => {
     if (parsed.page != undefined) {
       setPage(parsed.page);
@@ -43,10 +45,10 @@ export default function Search() {
     if (search) {
       dispatch(fetchImages(page, search, null));
     }
-    if (tagId) {
-      dispatch(fetchImages(page, null, tagId));
-    }
-  }, [page, search, tagId]);
+    //if (tagId) {
+    //  dispatch(fetchImages(page, null, tagId));
+    //}
+  }, [page, search]);
 
   const clickShowMore = () => {
     if (page) {
@@ -59,6 +61,7 @@ export default function Search() {
   };
   return (
     <>
+    <Header/>
       {showPreview && (
         <Preview
           setShowPreview={setShowPreview}

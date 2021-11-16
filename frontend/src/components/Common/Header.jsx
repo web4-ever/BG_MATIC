@@ -3,13 +3,14 @@ import ImgLogo from "../../assets/img/logo.png";
 import { useDispatch, useSelector } from "react-redux";
 import { getTags } from "../../reducks/tags/selectors";
 import { fetchTags } from "../../reducks/tags/operations";
-import { resetImages } from "../../reducks/images/operations";
-import { push } from "connected-react-router";
+import { fetchImages, resetImages } from "../../reducks/images/operations";
+import { useHistory } from "react-router";
 
 function Header() {
   const dispatch = useDispatch();
   const selector = useSelector((state) => state);
   const tags = getTags(selector);
+  const history = useHistory();
 
   useEffect(() => {
     dispatch(fetchTags());
@@ -17,7 +18,8 @@ function Header() {
 
   const pushToSearch = (tagId) => {
     dispatch(resetImages());
-    dispatch(push("/search?tag_id=" + tagId));
+    dispatch(fetchImages(1,null,tagId));
+    history.push("/search");
   };
 
   return (

@@ -6,6 +6,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { getFavourites } from "../reducks/favourites/selectors";
 import ImgIconsearch from "../assets/img/icon-search.svg";
+import Header from "../components/Common/Header";
 
 export default function Favorites() {
   const dispatch = useDispatch();
@@ -16,6 +17,8 @@ export default function Favorites() {
     dispatch(fetchFromLocalStorage());
   }, []);
   return (
+    <>
+    <Header/>
     <div class="favorite">
       <section class="search-main">
         <div class="searchbox2">
@@ -57,5 +60,6 @@ export default function Favorites() {
           ))}
       </section>
     </div>
+    </>
   );
 }

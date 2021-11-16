@@ -11,6 +11,6 @@ export const resetImagesAction = () => {
   return {
     type: "RESET_IMAGES",
     list: [],
-    hasNext: true,
+    hasNext: false,
   };
 };

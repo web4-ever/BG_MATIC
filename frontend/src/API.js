@@ -1,13 +1,17 @@
 import axios from "axios";
+require("dotenv").config();
 
+const {
+  REACT_APP_ENVIRONMENT,
+  REACT_APP_API_BASE_URL_PROD,
+  REACT_APP_API_BASE_URL_DEV,
+} = process.env;
 var baseURL;
-if (
-  process.env.REACT_APP_ENVIRONMENT &&
-  process.env.REACT_APP_ENVIRONMENT === "PRODUCTION"
-) {
-  baseURL = process.env.REACT_APP_API_BASE_URL;
+
+if (REACT_APP_ENVIRONMENT === "PRODUCTION") {
+  baseURL = REACT_APP_API_BASE_URL_PROD;
 } else {
-  baseURL = "http://127.0.0.1:8000";
+  baseURL = REACT_APP_API_BASE_URL_DEV;
 }
 
 const api = axios.create({
@@ -17,57 +21,18 @@ const api = axios.create({
   },
 });
 
+//  IMAGES//////////////
 export default class API {
-  getPosts = async () => {
-    const posts = await api
-      .get("/posts/")
-      .then((response) => {
-        return response.data;
-      })
-      .catch((error) => {
-        throw new Error(error);
-      });
-    return posts;
-  };
-  addPost = async (name, body, image) => {
-    const formData = new FormData();
-    formData.append("name", name);
-    formData.append("body", body);
-    formData.append("image", image);
-    const savedPost = await api
-      .post("/posts/add/", formData)
-      .then((response) => {
-        return response.data;
-      })
-      .catch((error) => {
-        throw new Error(error);
-      });
-    return savedPost;
-  };
-  deletePost = async (id) => {
-    const response = await api
-      .delete("/posts/delete/" + id + "/")
-      .then((response) => {
-        return response.data;
-      })
-      .catch((error) => {
-        throw new Error(error);
-      });
-    return response;
-  };
-
-  //  IMAGES//////////////
-
   getImages = async (page, search, tagId) => {
-    let url = "/images/?page=" + page;
-    if (tagId) {
-      url += "&tag=" + tagId;
-    }
-    if (search) {
-      url += "&search=" + search;
-    }
+    // let url = "/images/?page=" + page;
+    // if (tagId) {
+    //   url += "&tag=" + tagId;
+    // }
+    // if (search) {
+    //   url += "&search=" + search;
+    // }
     const images = await api
-      .get(url)
+      .get("/images/", { params: { page, search, tag: tagId } })
       .then((response) => {
         return response.data;
       })

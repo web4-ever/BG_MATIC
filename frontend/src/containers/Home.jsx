@@ -11,8 +11,9 @@ import ImgMainBackground from "../assets/img/main-background.png";
 import ImgIconSearch from "../assets/img/icon-search.svg";
 import ImgIconHeart from "../assets/img/icon-heart.svg";
 import Preview from "../components/Common/Preview";
+import Header from "../components/Common/Header";
 
-const Home = () => {
+export default function Home(){
   const dispatch = useDispatch();
   const selector = useSelector((state) => state);
   const images = getImages(selector);
@@ -43,6 +44,7 @@ const Home = () => {
   };
   return (
     <>
+    <Header/>
       {showPreview && (
         <Preview
           setShowPreview={setShowPreview}
@@ -104,4 +106,3 @@ const Home = () => {
   );
 };
 
-export default Home;

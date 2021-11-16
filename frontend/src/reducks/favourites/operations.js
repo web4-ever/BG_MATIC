@@ -31,7 +31,7 @@ export const addFavourite = (image) => {
 export const deleteFavourite = (id) => {
   return async (dispatch, getState) => {
     let prevFavourites = getState().favourites.list;
-    const nextFavourites = prevFavourites.filter((image) => image.id != id);
+    const nextFavourites = prevFavourites.filter((image) => image.id !== id);
     setToLocalStorage(nextFavourites);
     dispatch(deleteFavouritesAction(nextFavourites));
   };
