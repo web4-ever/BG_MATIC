@@ -1,14 +1,15 @@
 import React from "react";
 import Imagelogo from "../../assets/img/bottom-logo.svg";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
     <div>
       <footer class="bottom">
         <div class="logo">
-          <a href="/">
+          <Link to={"/"}>
             <img src={Imagelogo} alt="" />
-          </a>
+          </Link>
         </div>
       </footer>
     </div>

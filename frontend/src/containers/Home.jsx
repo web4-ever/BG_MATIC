@@ -12,8 +12,9 @@ import ImgIconSearch from "../assets/img/icon-search.svg";
 import ImgIconHeart from "../assets/img/icon-heart.svg";
 import Preview from "../components/Common/Preview";
 import Header from "../components/Common/Header";
+import Footer from "../components/Common/Footer";
 
-export default function Home(){
+export default function Home() {
   const dispatch = useDispatch();
   const selector = useSelector((state) => state);
   const images = getImages(selector);
@@ -44,7 +45,7 @@ export default function Home(){
   };
   return (
     <>
-    <Header/>
+      <Header />
       {showPreview && (
         <Preview
           setShowPreview={setShowPreview}
@@ -102,7 +103,7 @@ export default function Home(){
           )}
         </section>
       </div>
+      <Footer />
     </>
   );
-};
-
+}

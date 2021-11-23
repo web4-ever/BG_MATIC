@@ -2,28 +2,33 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchImages } from "../reducks/images/operations";
 import { getImages, getHasNext } from "../reducks/images/selectors";
+import { getTags } from "../reducks/tags/selectors";
 import { getFavourites } from "../reducks/favourites/selectors";
 import { addFavourite } from "../reducks/favourites/operations";
 import ImgIconsearch from "../assets/img/icon-search.svg";
 import ImgIconHeart from "../assets/img/icon-heart.svg";
 import Preview from "../components/Common/Preview";
 import queryString from "query-string";
-import { useHistory } from "react-router";
+import { useHistory } from "react-router-dom";
 import Header from "../components/Common/Header";
+import Footer from "../components/Common/Footer";
 
 export default function Search() {
   const dispatch = useDispatch();
+  const history = useHistory();
   const selector = useSelector((state) => state);
   const parsed = queryString.parse(window.location.search);
+  const tags = getTags(selector);
   const images = getImages(selector);
   const hasNext = getHasNext(selector);
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState(null);
   const [tagId, setTagId] = useState(null);
+  const [selectedtag, setselectedtag] = useState(null);
   const [showPreview, setShowPreview] = useState(false);
   const [selectedImageId, setSelectedImageId] = useState(null);
   const favourites = getFavourites(selector);
-  console.log("tag", tagId);
+  const tagName = history.location.state ? history.location.state.tagName : "";
   useEffect(() => {
     if (parsed.page != undefined) {
       setPage(parsed.page);
@@ -40,14 +45,20 @@ export default function Search() {
     setSelectedImageId(imageId);
     setShowPreview(true);
   };
+  const clickTag = (tagId) => {
+    setselectedtag(tagId);
+    setSearch(true);
+  };
 
   useEffect(() => {
     if (search) {
       dispatch(fetchImages(page, search, null));
+      console.log("search");
     }
-    //if (tagId) {
-    //  dispatch(fetchImages(page, null, tagId));
-    //}
+    if (tagId) {
+      dispatch(fetchImages(page, null, tagId));
+      console.log("tagId");
+    }
   }, [page, search]);
 
   const clickShowMore = () => {
@@ -61,7 +72,7 @@ export default function Search() {
   };
   return (
     <>
-    <Header/>
+      <Header setSearch={setSearch} />
       {showPreview && (
         <Preview
           setShowPreview={setShowPreview}
@@ -77,7 +88,13 @@ export default function Search() {
             </form>
           </div>
           <p class="title">
-            {search && <span class="thin">Search "{search}"</span>}
+            {/* {search && <span class="thin">Search "{(search, tagId)}"</span>} */}
+            {/* {search && <span class="thin">Search "{search}"</span> ? <span class="thin">Search "{tagId}"</span>:1} */}
+            {search && search ? (
+              <span class="thin">Search "{search}"</span>
+            ) : (
+              <span class="thin">Search "{tagName}"</span>
+            )}
           </p>
         </section>
 
@@ -114,6 +131,7 @@ export default function Search() {
           )}
         </section>
       </div>
+      <Footer />
     </>
   );
 }

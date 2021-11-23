@@ -28,6 +28,7 @@ body {
 .image-list ul li .image {
   width: 300px;
   margin: 10px;
+  cursor: pointer;
 }
 
 .image-list ul li .icon-heart {
@@ -35,6 +36,7 @@ body {
   right: 0;
   position: absolute;
   width: 55px;
+  cursor: pointer;
 }
 
 .image-list .button input {
@@ -148,6 +150,7 @@ header .navbar {
   z-index: 2;
   background: #ffffff70;
 }
+
 header .navbar ul {
   display: flex;
   list-style: none;
@@ -157,6 +160,11 @@ header .navbar ul {
   overflow-x: auto;
   padding: 10px;
   cursor: pointer;
+}
+header .navbar li.active {
+  font-weight: 700;
+  background-color: rgb(105 120 10);
+  color: #fff;
 }
 header .navbar li {
   margin: 0 10px;

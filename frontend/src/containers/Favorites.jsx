@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getFavourites } from "../reducks/favourites/selectors";
 import ImgIconsearch from "../assets/img/icon-search.svg";
 import Header from "../components/Common/Header";
+import Footer from "../components/Common/Footer";
 
 export default function Favorites() {
   const dispatch = useDispatch();
@@ -18,48 +19,49 @@ export default function Favorites() {
   }, []);
   return (
     <>
-    <Header/>
-    <div class="favorite">
-      <section class="search-main">
-        <div class="searchbox2">
-          <form action="/search" method="get">
-            <input placeholder="School" type="text" name="search" />
-            <img src={ImgIconsearch} class="searchimg" />
-          </form>
-        </div>
-        <p class="title">
-          <span>Favourites</span>
-        </p>
-      </section>
+      <Header />
+      <div class="favorite">
+        <section class="search-main">
+          <div class="searchbox2">
+            <form action="/search" method="get">
+              <input placeholder="School" type="text" name="search" />
+              <img src={ImgIconsearch} class="searchimg" />
+            </form>
+          </div>
+          <p class="title">
+            <span>Favourites</span>
+          </p>
+        </section>
 
-      <section class="favourite-images">
-        {favourites &&
-          favourites.map((favourite) => (
-            <div>
-              <div class="favourite-image" key={favourite.id}>
-                <img
-                  src={
-                    "https://res.cloudinary.com/www-techis-io/" +
-                    favourite.image
-                  }
-                  alt=""
-                />
+        <section class="favourite-images">
+          {favourites &&
+            favourites.map((favourite) => (
+              <div>
+                <div class="favourite-image" key={favourite.id}>
+                  <img
+                    src={
+                      "https://res.cloudinary.com/www-techis-io/" +
+                      favourite.image
+                    }
+                    alt=""
+                  />
+                </div>
+                <div class="favourite-buttons">
+                  <a href={favourite.image} target="_blank">
+                    <input type="submit" value="Download" class="btn" />
+                  </a>
+                  <input
+                    type="submit"
+                    value="Remove"
+                    class="btn-2"
+                    onClick={() => dispatch(deleteFavourite(favourite.id))}
+                  />
+                </div>
               </div>
-              <div class="favourite-buttons">
-                <a href={favourite.image} target="_blank">
-                  <input type="submit" value="Download" class="btn" />
-                </a>
-                <input
-                  type="submit"
-                  value="Remove"
-                  class="btn-2"
-                  onClick={() => dispatch(deleteFavourite(favourite.id))}
-                />
-              </div>
-            </div>
-          ))}
-      </section>
-    </div>
+            ))}
+        </section>
+      </div>
+      <Footer />
     </>
   );
 }
