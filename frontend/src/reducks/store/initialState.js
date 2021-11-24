@@ -1,7 +1,4 @@
 const initialState = {
-  posts: {
-    list: [],
-  },
   images: {
     list: [],
     hasNext: true,
