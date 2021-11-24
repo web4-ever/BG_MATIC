@@ -17,7 +17,7 @@ export const fetchImages = (page, search, tagId) => {
         dispatch(fetchImagesAction(nextImages, hasNext));
       })
       .catch((error) => {
-        alert("Failed to connect API: /posts/");
+        alert("Failed to connect API: /images/");
       });
   };
 };
