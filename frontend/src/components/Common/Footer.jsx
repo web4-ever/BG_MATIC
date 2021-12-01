@@ -1,5 +1,5 @@
 import React from "react";
-import Imagelogo from "../../assets/img/bottom-logo.svg";
+import Imagelogo from "../../assets/images/BGmatic-logo.svg";
 import { Link } from "react-router-dom";
 
 function Footer() {

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ImgLogo from "../../assets/img/logo.png";
+import ImgLogo from "../../assets/images/BGmatic-logo-header.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { getTags } from "../../reducks/tags/selectors";
 import { fetchTags } from "../../reducks/tags/operations";
@@ -16,7 +16,6 @@ function Header(props) {
 
   useEffect(() => {
     dispatch(fetchTags());
-    
   }, []);
 
   const pushToSearch = (tagId, tagName) => {
@@ -24,7 +23,7 @@ function Header(props) {
     dispatch(fetchImages(1, null, tagId));
     history.push("/search", { tagName });
     setSearch && setSearch(null);
-    setSelectedTag(tagId)
+    setSelectedTag(tagId);
   };
 
   return (
@@ -42,7 +41,7 @@ function Header(props) {
           {tags &&
             tags.map((tag) => (
               <li
-                className={selectedTag === tag.id ? 'active' : ''}
+                className={selectedTag === tag.id ? "active" : ""}
                 onClick={() => pushToSearch(tag.id, tag.name)}
                 key={tag.id}
               >

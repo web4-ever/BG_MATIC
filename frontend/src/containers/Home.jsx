@@ -7,9 +7,9 @@ import {
   addFavourite,
   fetchFromLocalStorage,
 } from "../reducks/favourites/operations";
-import ImgMainBackground from "../assets/img/main-background.png";
-import ImgIconSearch from "../assets/img/icon-search.svg";
-import ImgIconHeart from "../assets/img/icon-heart.svg";
+import ImgMainBackground from "../assets/images/main-background.png";
+import ImgIconSearch from "../assets/images/icon-search.svg";
+import ImgIconHeart from "../assets/images/icon-heart.svg";
 import Preview from "../components/Common/Preview";
 import Header from "../components/Common/Header";
 import Footer from "../components/Common/Footer";

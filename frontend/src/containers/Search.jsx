@@ -2,11 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchImages } from "../reducks/images/operations";
 import { getImages, getHasNext } from "../reducks/images/selectors";
-import { getTags } from "../reducks/tags/selectors";
 import { getFavourites } from "../reducks/favourites/selectors";
 import { addFavourite } from "../reducks/favourites/operations";
-import ImgIconsearch from "../assets/img/icon-search.svg";
-import ImgIconHeart from "../assets/img/icon-heart.svg";
+import ImgIconsearch from "../assets/images/icon-search.svg";
+import ImgIconHeart from "../assets/images/icon-heart.svg";
 import Preview from "../components/Common/Preview";
 import queryString from "query-string";
 import { useHistory } from "react-router-dom";
@@ -18,13 +17,11 @@ export default function Search() {
   const history = useHistory();
   const selector = useSelector((state) => state);
   const parsed = queryString.parse(window.location.search);
-  const tags = getTags(selector);
   const images = getImages(selector);
   const hasNext = getHasNext(selector);
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState(null);
   const [tagId, setTagId] = useState(null);
-  const [selectedtag, setselectedtag] = useState(null);
   const [showPreview, setShowPreview] = useState(false);
   const [selectedImageId, setSelectedImageId] = useState(null);
   const favourites = getFavourites(selector);
@@ -44,10 +41,6 @@ export default function Search() {
   const clickImage = (imageId) => {
     setSelectedImageId(imageId);
     setShowPreview(true);
-  };
-  const clickTag = (tagId) => {
-    setselectedtag(tagId);
-    setSearch(true);
   };
 
   useEffect(() => {
@@ -88,8 +81,6 @@ export default function Search() {
             </form>
           </div>
           <p class="title">
-            {/* {search && <span class="thin">Search "{(search, tagId)}"</span>} */}
-            {/* {search && <span class="thin">Search "{search}"</span> ? <span class="thin">Search "{tagId}"</span>:1} */}
             {search && search ? (
               <span class="thin">Search "{search}"</span>
             ) : (

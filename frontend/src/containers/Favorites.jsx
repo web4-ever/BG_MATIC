@@ -5,7 +5,7 @@ import {
 } from "../reducks/favourites/operations";
 import { useDispatch, useSelector } from "react-redux";
 import { getFavourites } from "../reducks/favourites/selectors";
-import ImgIconsearch from "../assets/img/icon-search.svg";
+import ImgIconsearch from "../assets/images/icon-search.svg";
 import Header from "../components/Common/Header";
 import Footer from "../components/Common/Footer";
 

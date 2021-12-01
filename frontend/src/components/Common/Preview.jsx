@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import ImgIconCross from "../../assets/img/icon-cross.svg";
-import ImgIconHeart from "../../assets/img/icon-heart.svg";
-import ImgRightPreviewHuman from "../../assets/img/right-preview-human.svg";
-import ImgRightPreviewBottom from "../../assets/img/right-preview-bottom.svg";
+import ImgIconCross from "../../assets/images/icon-cross.svg";
+import ImgIconHeart from "../../assets/images/icon-heart.svg";
+import ImgRightPreviewHuman from "../../assets/images/right-preview-human.svg";
+import ImgRightPreviewBottom from "../../assets/images/right-preview-bottom.svg";
 import { getFavourites } from "../../reducks/favourites/selectors";
 import API from "../../API";
 import { useDispatch, useSelector } from "react-redux";
@@ -85,7 +85,7 @@ function Preview({ setShowPreview, selectedImageId }) {
                     <img src={ImgRightPreviewHuman} alt="" class="human" />
                     <img src={ImgRightPreviewBottom} alt="" class="bottom" />
                   </div>
-                  <button class="download-button">Download</button>
+                  <button class="download-button" onclick="download()">Download</button>
                 </div>
               )}
             </div>

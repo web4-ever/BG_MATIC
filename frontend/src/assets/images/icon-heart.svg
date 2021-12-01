@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="73.925" height="65.536" viewBox="0 0 73.925 65.536">
+  <defs>
+    <filter id="Rectangle_318" x="0" y="0" width="73.925" height="65.536" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_268" data-name="Group 268" transform="translate(-530 -1792)">
+    <g id="Group_267" data-name="Group 267">
+      <g transform="matrix(1, 0, 0, 1, 530, 1792)" filter="url(#Rectangle_318)">
+        <g id="Rectangle_318-2" data-name="Rectangle 318" transform="translate(9 6)" fill="#01adf4" stroke="#707070" stroke-width="0.2" opacity="0.6">
+          <rect width="55.925" height="47.536" rx="5" stroke="none"/>
+          <rect x="0.1" y="0.1" width="55.725" height="47.336" rx="4.9" fill="none"/>
+        </g>
+      </g>
+    </g>
+    <image id="outline_favorite_white_48dp" width="28" height="28" transform="translate(553 1808)" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAABbklEQVRYCe3BzyvDcRzH8VdJUdtSrPzK1P4JZ3EVJzkqbg78C3Nxc+Di4A+gpKUUJblKLr4pNXPaaaXFCsmeKAc+vr+273u3PR7q6GgPsixxSIlnatxwxCJ9ctDHIkfcUOOZEocskVUcpChQx/XKJhn9IMMmr7jqFEgpHHk8glSY1BcmqRDEI69g5KkS5oUZZnghTJW8/JHCI8o770TxSMkPBawU9B9Z6lipk5WLZSwty0URS0W5uMPSnVw8YelJLmpYqsmFhyVPLo6xdCwXa1hak4tRGlhpMKr/OMPKmfwwQQMLDSbkjz0s7CsIYzyS1CNjCsYsSc0pHFsksa0odHNCq07pVjTSXNOKa9KKh0HuaVaZIcVHjjLNeCCn5pCjTFwPjKt55LgnjjLjag3DeES5ZUSto59LwlwxoGRIc06QCzJKjh4O8FOkVzboYgfXLl2yxDq/bcgeK3zw7YNVtQfzvPHGgtqHKabV0fHXJ8C7CzTmBzuhAAAAAElFTkSuQmCC"/>
+  </g>
+</svg>
